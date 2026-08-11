@@ -1,101 +1,191 @@
 # Introdução à Modelagem de Dados
 
-## Introdução
-
-O primeiro passo para o desenvolvimento de uma aplicação de sistema é o levantamento dos requisitos necessários, para a edificação do produto final.
-
-Durante essa análise, identifica-se as principais partes e objetos envolvidos, suas possíveis ações e responsabilidades, suas características e como elas interagem entre si.
-
-Com os resultados obtidos você poderá criar um modelo conceitual que se consiste em uma visão de alto nível e abstrata que organiza os conceitos as informações e as regras de um sistema.
+> **Objetivo:** Apresentar os conceitos iniciais de Modelagem de Dados, Modelo Entidade-Relacionamento (MER) e classificação das entidades.
 
 ---
 
-## Modelo Entidade Relacionamento (MER)
+## 1. Introdução
 
-Utilizado para descrever os objetos (entidades) envolvidos em um domínio de negócios, como sua características (atributos) e como elas se relacionam.
+O primeiro passo para o desenvolvimento de uma aplicação de sistema é o levantamento dos requisitos necessários, para a edificação do produto final.
+
+Durante essa análise, identifica-se as **principais partes e objetos envolvidos**, suas possíveis **ações e responsabilidades**, suas **características** e como elas **interagem entre si**.
+
+Com os resultados obtidos você poderá criar um **modelo conceitual** que se consiste em uma visão de alto nível e abstrata que organiza os conceitos as informações e as regras de um sistema.
+
+```text
+LEVANTAMENTO DE REQUISITOS
+           |
+           v
+  ANÁLISE DOS OBJETOS
+           |
+           v
+   MODELO CONCEITUAL
+```
+
+---
+
+## 2. Modelo Entidade Relacionamento (MER)
+
+Utilizado para descrever os **objetos (entidades)** envolvidos em um domínio de negócios, como sua **características (atributos)** e como elas **se relacionam**.
 
 ### Estrutura do MER
 
 ```text
-ENTIDADES
-   │
-   ├── ATRIBUTOS
-   │
-   └── RELACIONAMENTOS
++--------------------------------------------------+
+|         MODELO ENTIDADE RELACIONAMENTO           |
++--------------------------------------------------+
+                       |
+          +------------+------------+
+          |            |            |
+          v            v            v
+      ENTIDADES    ATRIBUTOS   RELACIONAMENTOS
 ```
 
 ---
 
-## Entidades
+## 3. Entidades
 
-Entidades são nomeadas com substantivos concretos ou abstratos que representem de forma clara sua função dentro do domínio, que podem ser classificados como físicos ou lógicos.
+Entidades são nomeadas com substantivos concretos ou abstratos que representem de forma clara sua função dentro do domínio, que podem ser classificados como **físicos ou lógicos**.
 
-### Entidades Físicas
+### 3.1 Entidades Físicas
 
 Cliente, pessoa, empresa, ou um produto: carro, computador.
 
-### Entidades Lógicas
+```text
++-----------------------+
+|   ENTIDADES FÍSICAS   |
++-----------------------+
+| Cliente               |
+| Pessoa                |
+| Empresa               |
+| Carro                 |
+| Computador            |
++-----------------------+
+```
+
+### 3.2 Entidades Lógicas
 
 Exige interação com Entidade Física como um cliente realizar uma compra.
 
+```text
++---------+       realiza       +--------+
+| CLIENTE | ------------------> | COMPRA |
++---------+                      +--------+
+```
+
 ---
 
-## Classificação das Entidades
+## 4. Classificação das Entidades
 
 Podemos classificar as entidades segundo o motivo de sua existência:
 
-### Entidades Fortes
+```text
+                    ENTIDADES
+                        |
+          +-------------+-------------+
+          |             |             |
+          v             v             v
+       FORTES         FRACAS      ASSOCIATIVAS
+```
 
-São aquelas cuja existência independe de outras entidades, ou seja, por si só elas já possuem total sentido de existir.
+---
+
+### 4.1 Entidades Fortes
+
+> **São aquelas cuja existência independe de outras entidades, ou seja, por si só elas já possuem total sentido de existir.**
 
 Como um site de vendas conter produtos.
 
 ```text
-SITE DE VENDAS
-      │
-      └── PRODUTOS
++------------------+
+|  SITE DE VENDAS  |
++------------------+
+         |
+         v
++------------------+
+|     PRODUTOS     |
++------------------+
 ```
 
 ---
 
-### Entidades Fracas
+### 4.2 Entidades Fracas
 
-São aquelas que dependem de outras entidades para existirem.
+> **São aquelas que dependem de outras entidades para existirem.**
 
 Como a entidade venda depende da entidade produto.
 
 ```text
-PRODUTO
-   │
-   └── VENDA
++------------------+
+|     PRODUTO      |
++------------------+
+         |
+         | depende
+         v
++------------------+
+|      VENDA       |
++------------------+
 ```
 
 ---
 
-### Entidades Associativas
+### 4.3 Entidades Associativas
 
-São aquelas que surge quando há a necessidade de associar uma entidade a um relacionamento existente.
+> **São aquelas que surge quando há a necessidade de associar uma entidade a um relacionamento existente.**
 
-Na modelagem Entidade-Relacionamento não é possível que um relacionamento seja associado a uma entidade, então tornamos esse relacionamento uma entidade associativa, que a partir daí poderá se relacionar com outras entidades.
+Na modelagem Entidade-Relacionamento não é possível que um relacionamento seja associado a uma entidade, então tornamos esse relacionamento uma **entidade associativa**, que a partir daí poderá se relacionar com outras entidades.
 
-### Exemplo
+#### Exemplo
 
 Quando duas pessoa se casam, o que prova que elas estão juntas é a certidão de casamento.
 
 ```text
-PESSOA ───── CASAMENTO ───── PESSOA
-                  │
-                  ↓
-        CERTIDÃO DE CASAMENTO
++----------+                      +----------+
+| PESSOA A | ------ CASAMENTO ---| PESSOA B |
++----------+          |           +----------+
+                      |
+                      v
+            +---------------------+
+            |      CERTIDÃO       |
+            |    DE CASAMENTO     |
+            +---------------------+
 ```
 
 O conceito de Entidade Associativa é exatamente esse:
 
-> Ela é o "papel" que registra quando duas coisas do mundo real interagem, se conectam ou realizam uma transação.
+> Ela é o **"papel"** que registra quando duas coisas do mundo real interagem, se conectam ou realizam uma transação.
+
+---
+
+## 5. Visão Geral
+
+```text
++==================================================+
+|               MODELAGEM DE DADOS                |
++==================================================+
+                       |
+                       v
+            LEVANTAMENTO DE REQUISITOS
+                       |
+                       v
+                MODELO CONCEITUAL
+                       |
+                       v
+                      MER
+                       |
+          +------------+------------+
+          |            |            |
+          v            v            v
+      ENTIDADES    ATRIBUTOS   RELACIONAMENTOS
+          |
+          +------------+------------+
+          |            |            |
+          v            v            v
+       FORTES         FRACAS      ASSOCIATIVAS
+```
 
 ---
 
 ## Referência
 
-DevMedia — MER e DER: Modelagem de Bancos de Dados
-
+**DevMedia — MER e DER: Modelagem de Bancos de Dados**
