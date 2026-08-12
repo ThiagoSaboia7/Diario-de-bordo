@@ -1,43 +1,71 @@
 # Diário de Bordo — Banco de Dados
 
-Este repositório foi criado para registrar e organizar minha evolução nos estudos de **Banco de Dados**, reunindo os conteúdos estudados de forma progressiva.
+Este Diário de Bordo foi desenvolvido para organizar e documentar os conteúdos estudados sobre **Modelagem de Banco de Dados**, seguindo os temas abordados durante a pesquisa.
 
 ---
 
 ## Sumário
 
+```text
++==================================================+
+|                 DIÁRIO DE BORDO                  |
+|              MODELAGEM DE DADOS                  |
++==================================================+
+                         |
+          +--------------+--------------+
+          |              |              |
+          v              v              v
+      ENTIDADES      ATRIBUTOS    RELACIONAMENTOS
+          \              |              /
+           \             |             /
+            +------------+------------+
+                         |
+                         v
+                     MER / DER
+```
+
 ### 01 — Introdução à Modelagem e Entidades
 
 [01-modelagem-e-entidades.md](./01-modelagem-e-entidades.md)
 
-### 02 — Diagrama Entidade-Relacionamento (DER)
+---
 
-[02-der.md](./02-der.md)
+### 02 — Atributos
 
-### 03 — Atributos
-
-[03-atributos.md](./03-atributos.md)
-
-### 04 — Relacionamentos e Cardinalidade
-
-[04-relacionamentos-e-cardinalidade.md](./04-relacionamentos-e-cardinalidade.md)
-
-### 05 — Chaves Primárias e Estrangeiras
-
-[05-chaves.md](./05-chaves.md)
-
-### 06 — Modelo Relacional
-
-[06-modelo-relacional.md](./06-modelo-relacional.md)
-
-### 07 — Normalização
-
-[07-normalizacao.md](./07-normalizacao.md)
-
-### 08 — SQL
-
-[08-sql.md](./08-sql.md)
+[02-atributos.md](./02-atributos.md)
 
 ---
 
-> O Diário de Bordo será atualizado conforme o avanço dos estudos.
+### 03 — Relacionamentos
+
+[03-relacionamentos.md](./03-relacionamentos.md)
+
+---
+
+### 04 — MER e DER
+
+[04-mer-e-der.md](./04-mer-e-der.md)
+
+---
+
+## Estrutura do Diário
+
+```text
+Diario-de-bordo/
+│
+├── Diario-de-Bordo.md
+│
+├── 01-modelagem-e-entidades.md
+│
+├── 02-atributos.md
+│
+├── 03-relacionamentos.md
+│
+└── 04-mer-e-der.md
+```
+
+---
+
+## Referência
+
+Os conteúdos apresentados neste Diário de Bordo foram desenvolvidos a partir do material de estudo sobre **MER e DER — Modelagem de Bancos de Dados**, disponibilizado pela DevMedia.
